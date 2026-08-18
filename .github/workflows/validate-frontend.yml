@@ -1,0 +1,30 @@
+name: Frontend Code Health Check
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/node-core@v4
+        with:
+          node-version: '20'
+
+      - name: Validate HTML Structure
+        run: |
+          npx htmlhint index.html
+
+      - name: Check File Presence
+        run: |
+          test -f index.html || (echo "index.html missing" && exit 1)
+          test -f style.css || (echo "style.css missing" && exit 1)
+          test -f script.js || (echo "script.js missing" && exit 1)
