@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban Board</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="board-header">
+        <h1>Productivity Board</h1>
+        <div class="add-task-container">
+            <input type="text" id="task-input" placeholder="Type a new task...">
+            <button id="add-task-btn">Add Task</button>
+        </div>
+    </div>
+
+    <div class="board">
+        <div class="column" id="todo">
+            <div class="column-header todo-hdr">To Do</div>
+            <div class="tasks-container">
+                <div class="task-card" draggable="true">Create project repository</div>
+                <div class="task-card" draggable="true">Design wireframes</div>
+            </div>
+        </div>
+
+        <div class="column" id="inprogress">
+            <div class="column-header inprogress-hdr">In Progress</div>
+            <div class="tasks-container">
+                <div class="task-card" draggable="true">Setup development environment</div>
+            </div>
+        </div>
+
+        <div class="column" id="done">
+            <div class="column-header done-hdr">Done</div>
+            <div class="tasks-container">
+                <div class="task-card" draggable="true">Kickoff meeting</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
